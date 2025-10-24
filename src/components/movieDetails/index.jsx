@@ -10,7 +10,8 @@ import Typography from "@mui/material/Typography";
 import Drawer from "@mui/material/Drawer";
 import MovieReviews from "../movieReviews"
 import LanguageIcon from '@mui/icons-material/Language';
-
+import SavingsIcon from '@mui/icons-material/Savings';
+import { max } from "lodash";
 
 const root = {
   display: "flex",
@@ -62,12 +63,20 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
         <Chip label={`Released: ${movie.release_date}`} />
       </Paper>
 
-
+      <Paper component="ul" sx={{ ...root }}>
+        <Chip icon={<SavingsIcon />} label={`Budget: ${movie.budget.toLocaleString('en-US', {
+    maximumFractionDigits: 2,
+    notation: 'compact',
+    compactDisplay: 'short',
+  
+        })}`} />
+      </Paper>
 
 
        <Paper component="ul" sx={{ ...root }}>
         <Chip icon={<LanguageIcon />} label={`Original Language: ${movie.original_language}`} />
       </Paper>
+
 
      
       <Fab
@@ -91,3 +100,6 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
   );
 };
 export default MovieDetails;
+
+//Help for cutting the millions figure budget to 25M rather than 25000000:
+//https://ahmadrosid.com/cheatsheet/js/formatting-number-javascript
