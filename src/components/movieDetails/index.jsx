@@ -64,15 +64,12 @@ const MovieDetails = ({ movie }) => {  // Don't miss this!
 
 
 
-//Exam practice 
+
        <Paper component="ul" sx={{ ...root }}>
         <Chip icon={<LanguageIcon />} label={`Original Language: ${movie.original_language}`} />
       </Paper>
 
      
-
-
-
       <Fab
         color="secondary"
         variant="extended"
